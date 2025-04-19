@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | My Cozy Web Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="js/script.js" defer></script>
+    <style>
+        .about-container {
+            padding: 60px 0;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .profile-sidebar {
+            text-align: center;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .profile-details {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-details h3 {
+            margin-bottom: 15px;
+            color: var(--color-primary);
+        }
+        
+        .detail-item {
+            margin-bottom: 10px;
+        }
+        
+        .detail-item strong {
+            color: var(--color-secondary);
+        }
+        
+        .bio-section, .resume-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .bio-section p {
+            margin-bottom: 20px;
+        }
+        
+        .resume-section h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+        }
+        
+        .resume-section h3:first-child {
+            margin-top: 0;
+        }
+        
+        .resume-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .resume-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-secondary);
+        }
+        
+        .resume-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-family: var(--font-body);
+        }
+        
+        .resume-item .date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .download-resume {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .download-resume:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-sidebar {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Welcome Home</h1>
+            </div>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="about-container">
+                <div class="about-header">
+                    <h2>About Me</h2>
+                    <p>Get to know the person behind the work</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="profile-sidebar">
+                        <img src="images/profile-placeholder.jpg" alt="My Photo" class="profile-image">
+                        
+                        <div class="profile-details">
+                            <h3>Details</h3>
+                            <div class="detail-item">
+                                <strong>Name:</strong>
+                                <p>Your Name</p>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Location:</strong>
+                                <p>Your City, Country</p>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Email:</strong>
+                                <p>your.email@example.com</p>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Field of Study:</strong>
+                                <p>Web Development</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bio-resume">
+                        <div class="bio-section">
+                            <h3>My Story</h3>
+                            <p>Hello! I'm [Your Name], a passionate web developer with a love for creating clean, intuitive, and engaging digital experiences. My journey into web development began when I first discovered how a few lines of code could build something useful and beautiful.</p>
+                            
+                            <p>When I'm not coding, you might find me exploring hiking trails, experimenting with new recipes in the kitchen, or diving into a good book. I believe in continuous learning and pushing my creative boundaries.</p>
+                            
+                            <p>I'm particularly interested in front-end development, user experience design, and creating accessible websites that everyone can enjoy. I'm excited about the future of web technology and eager to contribute to it.</p>
+                        </div>
+                        
+                        <div class="resume-section">
+                            <h3>Education</h3>
+                            <div class="resume-item">
+                                <h4>Bachelor of Science in Computer Science</h4>
+                                <div class="date">2020 - 2024</div>
+                                <p>University Name, City, State</p>
+                            </div>
+                            
+                            <h3>Skills</h3>
+                            <div class="resume-item">
+                                <h4>Technical Skills</h4>
+                                <p>HTML5, CSS3, JavaScript, React, Node.js, Git, Responsive Design</p>
+                            </div>
+                            <div class="resume-item">
+                                <h4>Soft Skills</h4>
+                                <p>Problem-solving, Teamwork, Communication, Time Management</p>
+                            </div>
+                            
+                            <h3>Experience</h3>
+                            <div class="resume-item">
+                                <h4>Web Development Intern</h4>
+                                <div class="date">Summer 2023</div>
+                                <p>Company Name, City, State</p>
+                                <p>Assisted in developing responsive websites and implementing new features. Collaborated with designers to translate mockups into functional pages.</p>
+                            </div>
+                            
+                            <a href="about/resume.pdf" class="download-resume" download>Download Full Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Email: your.email@example.com</p>
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-message">
+                    <p>Thanks for stopping by my cozy digital space!</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
