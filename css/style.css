@@ -52,6 +52,7 @@ h1, h2, h3 {
 }
 
 h1 {
+    padding: 10px;
     font-size: 1.8rem;
 }
 
@@ -114,7 +115,7 @@ header {
     padding: 1.5rem 0;
     background-color: var(--header-bg);
     border-bottom: 3px solid var(--border-color);
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
     box-shadow: var(--shadow);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
@@ -133,6 +134,7 @@ header {
 
 .navbar li {
     margin-left: 2rem;
+    padding: 10px;
 }
 
 .navbar a {
