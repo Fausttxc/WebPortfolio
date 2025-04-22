@@ -19,33 +19,7 @@
             margin-bottom: 40px;
         }
         
-        .projects-filter {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
         
-        .filter-btn {
-            background: none;
-            border: none;
-            padding: 8px 20px;
-            margin: 0 5px;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--color-primary);
-            cursor: pointer;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn.active {
-            background-color: var(--color-secondary);
-            color: white;
-        }
-        
-        .filter-btn:hover {
-            background-color: var(--color-light);
-        }
         
         .projects-grid {
             display: grid;
@@ -54,11 +28,12 @@
         }
         
         .project-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+            background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 2px solid var(--border-color);
         }
         
         .project-card:hover {
@@ -83,6 +58,7 @@
         
         .project-content {
             padding: 25px;
+
         }
         
         .project-tags {
@@ -92,13 +68,11 @@
         }
         
         .project-tag {
-            background-color: var(--color-light);
-            color: var(--color-primary);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            margin-bottom: 8px;
+            font-family: var(--pixel-font);
+    line-height: 1.4;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: var(--heading-shadow);
         }
         
         .project-links {
@@ -115,22 +89,49 @@
         }
         
         .view-project {
-            background-color: var(--color-secondary);
-            color: white;
+            display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-family: var(--pixel-font);
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    border: 1px solid transparent;
         }
         
         .view-code {
-            border: 1px solid var(--color-primary);
-            color: var(--color-primary);
+            display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-family: var(--pixel-font);
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    border: 1px solid transparent;
         }
         
         .view-project:hover {
-            background-color: var(--color-primary);
+            background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
         }
         
         .view-code:hover {
-            background-color: var(--color-primary);
-            color: white;
+            background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
         }
         
         .project-detail {
@@ -189,7 +190,7 @@
     <div class="container">
         <header>
             <div class="logo">
-                <h1>Welcome Home</h1>
+                <h1>Welcome!</h1>
             </div>
             <nav>
                 <ul class="navbar">
@@ -210,133 +211,57 @@
             <section class="projects-container">
                 <div class="projects-header">
                     <h2>My Projects</h2>
-                    <p>A collection of my work and ongoing explorations</p>
-                </div>
-                
-                <div class="projects-filter">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="web">Web Development</button>
-                    <button class="filter-btn" data-filter="design">Design</button>
-                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    
                 </div>
                 
                 <div class="projects-grid">
                     <!-- Project 1 -->
                     <div class="project-card" id="project1" data-category="web javascript">
                         <div class="project-image">
-                            <img src="images/project1-placeholder.jpg" alt="Project 1">
+                            <img src="images/gymbro.jpg" alt="Project 1">
                         </div>
                         <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">JavaScript</span>
-                            </div>
-                            <h3>Responsive Portfolio Website</h3>
-                            <p>A personal portfolio website with responsive design and smooth animations.</p>
+                            
+                            <h3>GymBro Mobile Application</h3>
+                            <p>A Mobile Application for a Gym Business</p>
                             <div class="project-links">
-                                <a href="#" class="project-link view-project">View Project</a>
-                                <a href="#" class="project-link view-code">View Code</a>
+                                
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 2 -->
-                    <div class="project-card" id="project2" data-category="design">
+                    <div class="project-card" id="project2">
                         <div class="project-image">
-                            <img src="images/project2-placeholder.jpg" alt="Project 2">
+                            <img src="images/blackclover.jpg" alt="Project 2">
                         </div>
                         <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">UI Design</span>
-                                <span class="project-tag">Figma</span>
-                            </div>
-                            <h3>Coffee Shop Mobile App</h3>
-                            <p>UI/UX design for a mobile application for a local coffee shop.</p>
+                          
+                            <h3>Black Clover Fandom</h3>
+                            <p>A WebPage for Black Clover, contains basic information about the characters.</p>
                             <div class="project-links">
-                                <a href="#" class="project-link view-project">View Project</a>
-                                <a href="#" class="project-link view-code">View Mockups</a>
+                                
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 3 -->
-                    <div class="project-card" data-category="web javascript">
+                    <div class="project-card" >
                         <div class="project-image">
-                            <img src="images/project3-placeholder.jpg" alt="Project 3">
+                            <img src="images/manage.png" alt="Project 3">
                         </div>
                         <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">React</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">API</span>
-                            </div>
-                            <h3>Weather Dashboard</h3>
-                            <p>A weather application that displays current and forecasted weather using a public API.</p>
+                            
+                            <h3>Gym Management System</h3>
+                            <p>A System that streamline the process within a gym.</p>
                             <div class="project-links">
-                                <a href="#" class="project-link view-project">View Project</a>
-                                <a href="#" class="project-link view-code">View Code</a>
+                               
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Project 4 -->
-                    <div class="project-card" data-category="design">
-                        <div class="project-image">
-                            <img src="images/project4-placeholder.jpg" alt="Project 4">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">Branding</span>
-                                <span class="project-tag">Logo Design</span>
-                            </div>
-                            <h3>Brand Identity for Local Bakery</h3>
-                            <p>Comprehensive brand identity design for a startup artisanal bakery.</p>
-                            <div class="project-links">
-                                <a href="#" class="project-link view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 5 -->
-                    <div class="project-card" data-category="javascript">
-                        <div class="project-image">
-                            <img src="images/project5-placeholder.jpg" alt="Project 5">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">Node.js</span>
-                                <span class="project-tag">Express</span>
-                            </div>
-                            <h3>Recipe Sharing Platform</h3>
-                            <p>A web application where users can share and discover recipes.</p>
-                            <div class="project-links">
-                                <a href="#" class="project-link view-project">View Project</a>
-                                <a href="#" class="project-link view-code">View Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 6 -->
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="images/project6-placeholder.jpg" alt="Project 6">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="project-tag">HTML</span>
-                                <span class="project-tag">CSS</span>
-                                <span class="project-tag">Responsive</span>
-                            </div>
-                            <h3>Cozy Reading Nook Blog</h3>
-                            <p>A responsive blog template with a cozy, warm aesthetic for book lovers.</p>
-                            <div class="project-links">
-                                <a href="#" class="project-link view-project">View Project</a>
-                                <a href="#" class="project-link view-code">View Code</a>
-                            </div>
-                        </div>
-                    </div>
+                   
+                   
                 </div>
             </section>
         </main>
@@ -357,53 +282,5 @@
             </div>
         </footer>
     </div>
-    
-    <script>
-        // Project filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    projectCards.forEach(card => {
-                        // Show all cards if "All" is selected
-                        if (filterValue === 'all') {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 300);
-                        } else {
-                            // Show cards that match the selected category
-                            const cardCategories = card.getAttribute('data-category');
-                            
-                            if (cardCategories && cardCategories.includes(filterValue)) {
-                                card.style.display = 'block';
-                                setTimeout(() => {
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0)';
-                                }, 300);
-                            } else {
-                                card.style.opacity = '0';
-                                card.style.transform = 'translateY(20px)';
-                                setTimeout(() => {
-                                    card.style.display = 'none';
-                                }, 300);
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
