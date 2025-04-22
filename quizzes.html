@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="js/script.js" defer></script>
     <style>
+         :root {
+      --color-primary: #6b4d30;
+      --color-secondary: #aa6c39;
+      --color-light: #f4f1ec;
+      --border-radius: 12px;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
         .quizzes-container {
             padding: 60px 0;
         }
@@ -36,11 +43,12 @@
         }
         
         .quiz-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: all 0.3s ease;
+            background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 2px solid var(--border-color);
         }
         
         .quiz-card:hover {
@@ -49,27 +57,22 @@
         }
         
         .quiz-header {
-            background-color: var(--color-primary);
-            color: white;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .quiz-header h3 {
-            color: white;
-            margin: 0;
-        }
-        
-        .quiz-date {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--color-secondary);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
+    position: relative;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+}
+
+.quiz-header h3 {
+    color: white;
+    font-size: clamp(1rem, 1.8vw, 1.3rem); /* Responsive font size */
+    margin: 0;
+    
+}
+
         
         .quiz-content {
             padding: 20px;
@@ -91,7 +94,11 @@
         }
         
         .quiz-description {
-            margin-bottom: 20px;
+             font-family: var(--pixel-font);
+    line-height: 1.4;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: var(--heading-shadow);
         }
         
         .quiz-links {
@@ -108,22 +115,49 @@
         }
         
         .view-quiz {
-            background-color: var(--color-secondary);
-            color: white;
+            display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-family: var(--pixel-font);
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    border: 1px solid transparent;
         }
         
         .view-solution {
-            border: 1px solid var(--color-primary);
-            color: var(--color-primary);
+            display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-family: var(--pixel-font);
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    border: 1px solid transparent;
         }
         
         .view-quiz:hover {
-            background-color: var(--color-primary);
+            background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
         }
         
         .view-solution:hover {
-            background-color: var(--color-primary);
-            color: white;
+            background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
         }
         
         .quiz-separator {
@@ -134,12 +168,15 @@
         }
         
         .quiz-grade {
+            font-family: var(--pixel-font);
+    
             display: flex;
             align-items: center;
             margin-top: 15px;
         }
         
         .grade-label {
+            
             margin-right: 10px;
             font-weight: 600;
             color: var(--color-primary);
@@ -156,10 +193,7 @@
         .grade-b {
             color: #8BC34A;
         }
-        
-        .grade-c {
-            color: #FFC107;
-        }
+
         
         @media screen and (max-width: 768px) {
             .quiz-list {
@@ -193,28 +227,25 @@
             <section class="quizzes-container">
                 <div class="quizzes-header">
                     <h2>My Quizzes</h2>
-                    <p>A collection of course quizzes and my solutions</p>
+                    
                 </div>
                 
-                <div class="quizzes-intro">
-                    <p>This section contains quizzes from my courses along with my solutions. Each quiz demonstrates my understanding of various web development concepts and techniques.</p>
-                </div>
+                
                 
                 <div class="quiz-list">
                     <!-- Quiz 1 -->
                     <div class="quiz-card" id="quiz1">
                         <div class="quiz-header">
-                            <h3>HTML & CSS Basics</h3>
-                            <div class="quiz-date">September 2023</div>
+                            <h3>Introduction to Advanced HCI</h3>
+                            
                         </div>
                         <div class="quiz-content">
                             <div class="quiz-topics">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>Layout</span>
+                                <span>2025</span>
+                                <span>Module 1</span>
                             </div>
                             <div class="quiz-description">
-                                <p>This quiz covers fundamental concepts of HTML structure and CSS styling techniques.</p>
+                                <p>This quiz covers fundamental concepts of HCI.</p>
                             </div>
                             <div class="quiz-links">
                                 <a href="quizzes/quiz1.pdf" class="quiz-link view-quiz">View Quiz</a>
@@ -222,8 +253,8 @@
                             </div>
                             <div class="quiz-separator"></div>
                             <div class="quiz-grade">
-                                <span class="grade-label">Grade:</span>
-                                <span class="grade-value grade-a">A (95%)</span>
+                                <span class="grade-label"style="color: var(--accent-color);">Grade:</span>
+                                <span class="grade-value">/20   </span>
                             </div>
                         </div>
                     </div>
@@ -231,14 +262,13 @@
                     <!-- Quiz 2 -->
                     <div class="quiz-card" id="quiz2">
                         <div class="quiz-header">
-                            <h3>JavaScript Fundamentals</h3>
-                            <div class="quiz-date">October 2023</div>
+                            <h3>Human-Computer Interaction & User-Centered Design</h3>
+                           
                         </div>
                         <div class="quiz-content">
                             <div class="quiz-topics">
-                                <span>JavaScript</span>
-                                <span>DOM Manipulation</span>
-                                <span>Events</span>
+                                <span>2025</span>
+                                
                             </div>
                             <div class="quiz-description">
                                 <p>This quiz focused on JavaScript basics, DOM manipulation, and event handling.</p>
@@ -259,13 +289,12 @@
                     <div class="quiz-card" id="quiz3">
                         <div class="quiz-header">
                             <h3>Responsive Web Design</h3>
-                            <div class="quiz-date">November 2023</div>
+                            
                         </div>
                         <div class="quiz-content">
                             <div class="quiz-topics">
                                 <span>Media Queries</span>
-                                <span>Flexbox</span>
-                                <span>Grid Layout</span>
+                                
                             </div>
                             <div class="quiz-description">
                                 <p>A quiz on responsive design principles, including mobile-first approaches and layout techniques.</p>
@@ -286,13 +315,12 @@
                     <div class="quiz-card" id="quiz4">
                         <div class="quiz-header">
                             <h3>Web Accessibility</h3>
-                            <div class="quiz-date">December 2023</div>
+                            
                         </div>
                         <div class="quiz-content">
                             <div class="quiz-topics">
                                 <span>ARIA</span>
-                                <span>Semantic HTML</span>
-                                <span>Keyboard Navigation</span>
+                               
                             </div>
                             <div class="quiz-description">
                                 <p>This quiz tested knowledge of web accessibility standards and implementation techniques.</p>
@@ -313,13 +341,12 @@
                     <div class="quiz-card" id="quiz5">
                         <div class="quiz-header">
                             <h3>Web APIs and Fetch</h3>
-                            <div class="quiz-date">February 2024</div>
+                            
                         </div>
                         <div class="quiz-content">
                             <div class="quiz-topics">
                                 <span>RESTful APIs</span>
-                                <span>Fetch API</span>
-                                <span>JSON</span>
+                                
                             </div>
                             <div class="quiz-description">
                                 <p>A quiz on working with web APIs, making HTTP requests, and handling responses.</p>
@@ -340,13 +367,12 @@
                     <div class="quiz-card" id="quiz6">
                         <div class="quiz-header">
                             <h3>Frontend Frameworks</h3>
-                            <div class="quiz-date">March 2024</div>
+                            
                         </div>
                         <div class="quiz-content">
                             <div class="quiz-topics">
                                 <span>React</span>
-                                <span>Components</span>
-                                <span>State Management</span>
+                               
                             </div>
                             <div class="quiz-description">
                                 <p>This quiz covered concepts related to modern frontend frameworks and component architecture.</p>
