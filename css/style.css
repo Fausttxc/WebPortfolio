@@ -439,6 +439,7 @@ footer {
   from, to { border-color: transparent; }
   50% { border-color: #fff; }
 }
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     header {
