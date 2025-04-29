@@ -4,19 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizzes | My Cozy Web Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="js/script.js" defer></script>
     <style>
-         :root {
-      --color-primary: #6b4d30;
-      --color-secondary: #aa6c39;
-      --color-light: #f4f1ec;
-      --border-radius: 12px;
-      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
+        :root {
+            --main-bg-color: #121920;
+            --text-color: #e6d2c0;
+            --accent-color: #ff9d5c;
+            --accent-color-light: #ffb385;
+            --accent-color-dark: #d17a45;
+            --secondary-color: #8cc9ff;
+            --dark-overlay: rgba(21, 34, 56, 0.8);
+            --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            --card-bg: #1a2430;
+            --header-bg: #0f1620;
+            --footer-bg: #1a2430;
+            --border-color: #6d4e38;
+            --pixel-font: 'Press Start 2P', cursive;
+            --body-font: 'VT323', monospace;
+            --heading-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            --color-primary: #6b4d30;
+            --color-secondary: #aa6c39;
+            --color-light: #f4f1ec;
+        }
+        
+        /* Import pixel-style fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Open+Sans:wght@400;600&display=swap');
+        
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: var(--main-bg-color);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--pixel-font);
+            line-height: 1.4;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--heading-shadow);
+        }
+        
+        h1 {
+            padding: 10px;
+            font-size: 1.8rem;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            background-color: var(--header-bg);
+            border-bottom: 3px solid var(--border-color);
+            margin-bottom: .5rem;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .logo h1 {
+            margin-bottom: 0;
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 8px rgba(255, 157, 92, 0.4);
+        }
+        
+        .navbar {
+            display: flex;
+            list-style: none;
+        }
+        
+        .navbar li {
+            margin-left: 2rem;
+            padding: 10px;
+        }
+        
+        .navbar a {
+            color: var(--text-color);
+            font-family: var(--pixel-font);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .navbar a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .navbar a:hover:after, .navbar a.active:after {
+            width: 100%;
+        }
+        
+        .navbar a.active {
+            color: var(--accent-color);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background-color: var(--accent-color);
+            margin: 3px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--footer-bg);
+            border-top: 3px solid var(--border-color);
+            color: var(--text-color);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+            font-family: var(--body-font);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .contact-info h3 {
+            font-family: var(--pixel-font);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            color: var(--main-bg-color);
+            box-shadow: 0 0 10px rgba(140, 201, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .footer-message {
+            text-align: right;
+            font-family: var(--pixel-font);
+            font-size: 0.7rem;
+            color: var(--accent-color);
+            margin-top: 1rem;
+        }
+        
+        .footer-message p {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-message p:after {
+            content: "_";
+            animation: blink 1s infinite;
+            opacity: 1;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Quiz Page Specific Styles */
         .quizzes-container {
             padding: 60px 0;
         }
@@ -26,178 +260,301 @@
             margin-bottom: 40px;
         }
         
-        .quizzes-intro {
-            max-width: 700px;
-            margin: 0 auto 40px;
-            text-align: center;
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+        /* Filter styles */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
+        .filter-btn {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-family: var(--pixel-font);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent-color);
+            color: var(--main-bg-color);
+            box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
+        }
+        
+        /* Quiz cards grid */
         .quiz-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
+            justify-items: center;
         }
         
+        /* Quiz Card Styles - Fixed height and consistent structure */
         .quiz-card {
-            background-color: var(--card-bg);
+    background-color: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease;
     border: 2px solid var(--border-color);
-        }
-        
-        .quiz-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(107, 77, 48, 0.2);
-        }
-        
-        .quiz-header {
-    position: relative;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    height: 480px; /* Fixed height for all cards */
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(107, 77, 48, 0.2);
+}
+
+.quiz-header {
     background-color: var(--color-primary);
     color: white;
     padding: 1rem;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    overflow: hidden;
+    text-align: center;
 }
 
 .quiz-header h3 {
     color: white;
-    font-size: clamp(1rem, 1.8vw, 1.3rem); /* Responsive font size */
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
     margin: 0;
-    
+    text-align: center;
+    min-height: 40px; /* Ensure consistent height for titles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Updated Quiz image styles */
+.quiz-image {
+    width: 100%;
+    height: 180px;
+    object-fit:contain;
+    display: block;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.quiz-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out the content evenly */
+    flex-grow: 1; /* Ensure content takes available space */
+}
+
+.quiz-top-content {
+    text-align: center;
+}
+
+.quiz-topics {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.quiz-topics span {
+    display: inline-block;
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* Consistent bottom section layout */
+.quiz-bottom {
+    margin-top: auto; /* Pushes the button to the bottom */
+}
+
+.quiz-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%; /* Ensure it's taking full width for consistency */
+}
+
+.view-quiz {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-family: var(--pixel-font);
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid transparent;
+    width: 80%; /* Consistent width for all buttons */
+    cursor: pointer;
+}
+
+.view-quiz:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
+}
+
+.quiz-separator {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 15px 0;
+}
+
+.quiz-grade {
+    font-family: var(--pixel-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.grade-label {
+    margin-right: 10px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.grade-value {
+    font-weight: 600;
+    color: var(--text-color);
 }
 
         
-        .quiz-content {
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: var(--card-bg);
+            margin: auto;
             padding: 20px;
+            border: 3px solid var(--border-color);
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: modalFadeIn 0.4s;
         }
         
-        .quiz-topics {
-            margin-bottom: 15px;
-        }
-        
-        .quiz-topics span {
-            display: inline-block;
-            background-color: var(--color-light);
-            color: var(--color-primary);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-        
-        .quiz-description {
-             font-family: var(--pixel-font);
-    line-height: 1.4;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-    text-shadow: var(--heading-shadow);
-        }
-        
-        .quiz-links {
+        .modal-header {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
         }
         
-        .quiz-link {
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        .modal-title {
+            color: var(--accent-color);
+            font-family: var(--pixel-font);
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .close-modal {
+            color: var(--accent-color);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
         
-        .view-quiz {
-            display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--main-bg-color);
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--border-radius);
-    font-family: var(--pixel-font);
-    font-size: 0.9rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    border: 1px solid transparent;
+        .close-modal:hover {
+            color: var(--secondary-color);
+            transform: scale(1.1);
         }
         
-        .view-solution {
-            display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--main-bg-color);
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--border-radius);
-    font-family: var(--pixel-font);
-    font-size: 0.9rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    border: 1px solid transparent;
+        .modal-body {
+            text-align: center;
         }
         
-        .view-quiz:hover {
-            background-color: transparent;
-    color: var(--accent-color);
-    border: 2px solid var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
+        .modal-body img {
+            max-width: 100%;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
         }
         
-        .view-solution:hover {
-            background-color: transparent;
-    color: var(--accent-color);
-    border: 2px solid var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(255, 157, 92, 0.4);
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
         }
         
-        .quiz-separator {
-            width: 100%;
-            height: 1px;
-            background-color: #eee;
-            margin: 15px 0;
+        /* For hiding quiz cards when filtered */
+        .hidden {
+            display: none;
         }
         
-        .quiz-grade {
-            font-family: var(--pixel-font);
-    
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-        }
-        
-        .grade-label {
-            
-            margin-right: 10px;
-            font-weight: 600;
-            color: var(--color-primary);
-        }
-        
-        .grade-value {
-            font-weight: 600;
-        }
-        
-        .grade-a {
-            color: #4CAF50;
-        }
-        
-        .grade-b {
-            color: #8BC34A;
-        }
-
-        
+        /* Responsive styles */
         @media screen and (max-width: 768px) {
             .quiz-list {
                 grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .navbar {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 1rem;
+            }
+            
+            .navbar.active {
+                display: flex;
+            }
+            
+            .navbar li {
+                margin: 0.5rem 0;
+            }
+            
+            .hamburger {
+                display: flex;
+                position: absolute;
+                top: 1.5rem;
+                right: 2rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 15px;
             }
         }
     </style>
@@ -227,171 +584,370 @@
             <section class="quizzes-container">
                 <div class="quizzes-header">
                     <h2>My Quizzes</h2>
-                    
                 </div>
                 
-                
+                <!-- Filter buttons -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="quiz">Quiz</button>
+                    <button class="filter-btn" data-filter="pretest">Pre-Test</button>
+                    <button class="filter-btn" data-filter="exam">Exam</button>
+                    <button class="filter-btn" data-filter="activity">Activity</button>
+                </div>
                 
                 <div class="quiz-list">
                     <!-- Quiz 1 -->
-                    <div class="quiz-card" id="quiz1">
+                    <div class="quiz-card" id="quiz1" data-type="quiz">
                         <div class="quiz-header">
-                            <h3>Introduction to Advanced HCI</h3><br>
-                            
+                            <h3>Introduction to Advanced HCI</h3>
                         </div>
+                        <img src="images/p1.png" alt="HCI Introduction" class="quiz-image">
                         <div class="quiz-content">
-                            <div class="quiz-topics">
-                                <span>2025</span>
-                                <span>Module 1</span>
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>2025</span>
+                                    <span>Module 1</span>
+                                    <span>Quiz</span>
+                                </div>
+                                
                             </div>
-                            <div class="quiz-description">
-                                <p>This quiz covers fundamental concepts of HCI.</p>
-                            </div>
-                            <div class="quiz-links">
-                                <a href="quizzes/quiz1.pdf" class="quiz-link view-quiz">View Quiz</a>
-                                <a href="quizzes/quiz1-solution.html" class="quiz-link view-solution">View Solution</a>
-                            </div>
-                            <div class="quiz-separator"></div>
-                            <div class="quiz-grade">
-                                <span class="grade-label"style="color: var(--accent-color);">Grade:</span>
-                                <span class="grade-value">/20   </span>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="quiz1" data-quiz-title="Introduction to Advanced HCI">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="15">/20</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Quiz 2 -->
-                    <div class="quiz-card" id="quiz2">
+                    <div class="quiz-card" id="quiz2" data-type="quiz">
                         <div class="quiz-header">
-                            <h3>Human-Computer Interaction & User-Centered Design</h3>
-                           
+                            <h3>Human-Computer Interaction & UCD</h3>
                         </div>
+                        <img src="images/p2.png" alt="User-Centered Design" class="quiz-image">
                         <div class="quiz-content">
-                            <div class="quiz-topics">
-                                <span>2025</span>
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>2025</span>
+                                    <span>Module 2</span>
+                                    <span>Quiz</span>
+                                </div>
                                 
                             </div>
-                            <div class="quiz-description">
-                                <p>This quiz focused on JavaScript basics, DOM manipulation, and event handling.</p>
-                            </div>
-                            <div class="quiz-links">
-                                <a href="quizzes/quiz2.pdf" class="quiz-link view-quiz">View Quiz</a>
-                                <a href="quizzes/quiz2-solution.js" class="quiz-link view-solution">View Solution</a>
-                            </div>
-                            <div class="quiz-separator"></div>
-                            <div class="quiz-grade">
-                                <span class="grade-label">Grade:</span>
-                                <span class="grade-value">/20</span>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="quiz2" data-quiz-title="Human-Computer Interaction & UCD">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="19">/20</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Quiz 3 -->
-                    <div class="quiz-card" id="quiz3">
+                    <div class="quiz-card" id="quiz3" data-type="quiz">
                         <div class="quiz-header">
                             <h3>Usability Principles & Heuristic Evaluation</h3>
-                            
                         </div>
+                        <img src="images/p3.png" alt="Usability Principles" class="quiz-image">
                         <div class="quiz-content">
-                            <div class="quiz-topics">
-                                <span>Module 3</span>
-                                <span>2025</span>
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Module 3</span>
+                                    <span>2025</span>
+                                    <span>Quiz</span>
+                                </div>
                                 
                             </div>
-                            <div class="quiz-description">
-                                <p>A quiz on Understanding usability principles and heuristic evaluation</p>
-                            </div>
-                            <div class="quiz-links">
-                                <a href="quizzes/quiz3.pdf" class="quiz-link view-quiz">View Quiz</a>
-                                <a href="quizzes/quiz3-solution.html" class="quiz-link view-solution">View Solution</a>
-                            </div>
-                            <div class="quiz-separator"></div>
-                            <div class="quiz-grade">
-                                <span class="grade-label">Grade:</span>
-                                <span class="grade-value">/20</span>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="quiz3" data-quiz-title="Usability Principles & Heuristic Evaluation">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="15">/20</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Quiz 4 -->
-                    <div class="quiz-card" id="quiz4">
+                    <div class="quiz-card" id="quiz4" data-type="quiz">
                         <div class="quiz-header">
                             <h3>Interaction Design & Prototyping</h3>
-                            
                         </div>
+                        <img src="images/p4.png" alt="Prototyping" class="quiz-image">
                         <div class="quiz-content">
-                            <div class="quiz-topics">
-                                <span>Module 4</span>
-                                <span>2025</span>
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Module 4</span>
+                                    <span>2025</span>
+                                    <span>Quiz</span>
+                                </div>
+                               
                             </div>
-                            <div class="quiz-description">
-                                <p>This quiz is the practice of designing interactive digital products, systems, and services.</p>
-                            </div>
-                            <div class="quiz-links">
-                                <a href="quizzes/quiz4.pdf" class="quiz-link view-quiz">View Quiz</a>
-                                <a href="quizzes/quiz4-solution.html" class="quiz-link view-solution">View Solution</a>
-                            </div>
-                            <div class="quiz-separator"></div>
-                            <div class="quiz-grade">
-                                <span class="grade-label">Grade:</span>
-                                <span class="grade-value">/20</span>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="quiz4" data-quiz-title="Interaction Design & Prototyping">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="19">/20</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Quiz 5 -->
-                    <div class="quiz-card" id="quiz5">
+                    <div class="quiz-card" id="quiz5" data-type="quiz">
                         <div class="quiz-header">
-                            <h3>Information Architecture & Navigaton Design</h3>
-                            
+                            <h3>Information Architecture & Navigation Design</h3>
                         </div>
+                        <img src="images/p5.png" alt="Information Architecture" class="quiz-image">
                         <div class="quiz-content">
-                            <div class="quiz-topics">
-                                <span>Module 5</span>
-                            <span>2025</span>
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Module 5</span>
+                                    <span>2025</span>
+                                </div>
+                                
                             </div>
-                            <div class="quiz-description">
-                                <p>A quiz on Information Architecture</p><br>
-                            </div>
-                            <div class="quiz-links">
-                                <a href="quizzes/quiz5.pdf" class="quiz-link view-quiz">View Quiz</a>
-                                <a href="quizzes/quiz5-solution.js" class="quiz-link view-solution">View Solution</a>
-                            </div>
-                            <div class="quiz-separator"></div>
-                            <div class="quiz-grade">
-                                <span class="grade-label">Grade:</span>
-                                <span class="grade-value">/20</span>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="quiz5" data-quiz-title="Information Architecture & Navigation Design">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="17">/20</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Quiz 6 -->
-                    <div class="quiz-card" id="quiz6">
+                    <div class="quiz-card" id="midtermquiz" data-type="quiz">
                         <div class="quiz-header">
-                            <h3>Long Quiz</h3><br>
-                            
+                            <h3>Midterm Long Quiz</h3>
                         </div>
+                        <img src="images/lq.png" alt="Midterm Quiz" class="quiz-image">
                         <div class="quiz-content">
-                            <div class="quiz-topics">
-                                <span>Midterm</span>
-                               
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Midterm</span>
+                                    <span>Quiz</span>
+                                </div>
+                                
                             </div>
-                            <div class="quiz-description">
-                                <p>Midterm Long Quiz</p><br>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="midtermquiz" data-quiz-title="Long Quiz">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="29">/40</span>
+                                </div>
                             </div>
-                            <div class="quiz-links">
-                                <a href="quizzes/quiz6.pdf" class="quiz-link view-quiz">View Quiz</a>
-                                <a href="quizzes/quiz6-solution.jsx" class="quiz-link view-solution">View Solution</a>
+                        </div>
+                    </div>
+                    <div class="quiz-card" id="midterm" data-type="exam">
+                        <div class="quiz-header">
+                            <h3>Midterm Exam</h3>
+                        </div>
+                        <img src="images/midterm.png" alt="midterm" class="quiz-image">
+                        <div class="quiz-content">
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Midterm</span>
+                                    <span>Exam</span>
+                                </div>
+                                
                             </div>
-                            <div class="quiz-separator"></div>
-                            <div class="quiz-grade">
-                                <span class="grade-label">Grade:</span>
-                                <span class="grade-value">/40</span>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="midterm" data-quiz-title="Midterm Exam">View Exam</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="52">/70</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-card" id="pretest1" data-type="pretest">
+                        <div class="quiz-header">
+                            <h3>Pretest #1</h3>
+                        </div>
+                        <img src="images/" alt="pretest1" class="quiz-image">   
+                        <div class="quiz-content">
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Pretest</span>
+                                </div>
+                                
+                            </div>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="pretest1" data-quiz-title="Pre-Test">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="">/40</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-card" id="pretest2" data-type="pretest">
+                        <div class="quiz-header">
+                            <h3>Pretest</h3>
+                        </div>
+                        <img src="images/pr2.png" alt="pretest2" class="quiz-image">
+                        <div class="quiz-content">
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Pretest #2</span>
+                                </div>
+                                
+                            </div>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="pretest2" data-quiz-title="Pre-Test">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="13">/15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-card" id="pretest3" data-type="pretest">
+                        <div class="quiz-header">
+                            <h3>Pretest #3</h3>
+                        </div>
+                        <img src="images/pr3.png" alt="pretest3" class="quiz-image">
+                        <div class="quiz-content">
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Pretest</span>
+                                </div>
+                                
+                            </div>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="pretest3" data-quiz-title="Pre-Test">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="12">/15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-card" id="pretest4" data-type="pretest">
+                        <div class="quiz-header">
+                            <h3>Pretest #4</h3>
+                        </div>
+                        <img src="images/pr4.png" alt="pretest4" class="quiz-image">
+                        <div class="quiz-content">
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Pretest #4</span>
+                                </div>
+                                
+                            </div>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="pretest4" data-quiz-title="Pre-Test">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="9">/15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-card" id="pretest5" data-type="pretest">
+                        <div class="quiz-header">
+                            <h3>Pretest #5</h3>
+                        </div>
+                        <img src="images/pr5.png" alt="pretest5" class="quiz-image">
+                        <div class="quiz-content">
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>Pretest</span>
+                                </div>
+                                
+                            </div>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="pretest5" data-quiz-title="Pre-Test">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="16">/20</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-card" id="act1" data-type="activity">
+                        <div class="quiz-header">
+                            <h3>Activity</h3>
+                        </div>
+                        <img src="images/act1.png" alt="act1" class="quiz-image">
+                        <div class="quiz-content">
+                            <div class="quiz-top-content">
+                                <div class="quiz-topics">
+                                    <span>2025</span>
+                                    
+                                    <span>Activity</span>
+                                </div>
+                                
+                            </div>
+                            <div class="quiz-bottom">
+                                <div class="quiz-links">
+                                    <button class="view-quiz" data-quiz-id="act1" data-quiz-title="Activity">View Quiz</button>
+                                </div>
+                                <div class="quiz-separator"></div>
+                                <div class="quiz-grade">
+                                    <span class="grade-label">Grade:</span>
+                                    <span class="grade-value" data-grade="100">/100</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+        
+        <!-- Modal for Quiz Display -->
+        <div id="quizModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Quiz Title</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <img id="modalQuizImage" src="/api/placeholder/700/500" alt="Quiz Image">
+                </div>
+            </div>
+        </div>
         
         <footer>
             <div class="footer-content">
@@ -409,5 +965,151 @@
             </div>
         </footer>
     </div>
+    
+    <!-- JavaScript for filtering and modal functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const quizCards = document.querySelectorAll('.quiz-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter quiz cards
+                    quizCards.forEach(card => {
+                        const cardType = card.getAttribute('data-type');
+                        
+                        if (filterValue === 'all' || filterValue === cardType) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+            
+            // Modal functionality
+            const modal = document.getElementById('quizModal');
+            const modalTitle = document.querySelector('.modal-title');
+            const modalImage = document.getElementById('modalQuizImage');
+            const closeModal = document.querySelector('.close-modal');
+            const viewQuizBtns = document.querySelectorAll('.view-quiz');
+            
+            // Open modal when View Quiz is clicked
+            viewQuizBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const quizId = this.getAttribute('data-quiz-id');
+                    const quizTitle = this.getAttribute('data-quiz-title');
+                    const quizCard = document.getElementById(quizId);
+                    const quizImage = quizCard.querySelector('.quiz-image').src;
+                    // Set modal title and image
+                    modalTitle.textContent = quizTitle;
+                    modalImage.src = quizImage;
+                    
+                    // Display modal
+                    modal.style.display = 'flex';
+                });
+            });
+            
+            // Close modal when X is clicked
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside the modal content
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Responsive navbar toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navbar = document.querySelector('.navbar');
+            
+            hamburger.addEventListener('click', function() {
+                navbar.classList.toggle('active');
+                
+                // Animate hamburger to X
+                const spans = this.querySelectorAll('span');
+                spans.forEach(span => span.classList.toggle('active'));
+                
+                if (navbar.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            
+            // Add grades to the quizzes (simulated - in a real application this would come from a database)
+            function displayGrades() {
+    const gradeElements = document.querySelectorAll('.grade-value');
+    gradeElements.forEach(element => {
+        const text = element.textContent.trim();
+        const maxGrade = parseInt(text.split('/')[1]) || 40; // Extract max grade dynamically
+        const currentGrade = parseInt(element.getAttribute('data-grade')); // Get the grade you manually set
+
+        if (!isNaN(currentGrade)) {
+            element.textContent = `${currentGrade}/${maxGrade}`;
+
+            // Add color based on grade
+            const percentage = (currentGrade / maxGrade) * 100;
+            if (percentage >= 80) {
+                element.style.color = '#4CAF50'; // Green for excellent
+            } else if (percentage >= 70) {
+                element.style.color = '#8bc34a'; // Light green for good
+            } else if (percentage >= 60) {
+                element.style.color = '#FFC107'; // Amber for average
+            } else {
+                element.style.color = '#F44336'; // Red for below average
+            }
+        }
+    });
+}
+
+// Call the function to display grades
+displayGrades();
+            
+            // Add animation when scrolling to quiz cards
+            function animateOnScroll() {
+                const cards = document.querySelectorAll('.quiz-card');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(card);
+                });
+            }
+            
+            // Initialize scroll animations
+            animateOnScroll();
+        });
+    </script>
 </body>
 </html>

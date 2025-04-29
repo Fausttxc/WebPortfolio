@@ -264,18 +264,19 @@ header {
 .card-image {
     overflow: hidden;
     border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* or any height you want */
+    background-color: #f5f5f5; /* optional */
 }
 
 .card-image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.work-card:hover .card-image img {
-    transform: scale(1.05);
-}
 
 .card-content {
     padding: 1.5rem;
@@ -301,11 +302,18 @@ header {
     border: 2px solid var(--border-color);
 }
 
-.about-photo img {
+.about-photo {
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.about-photo img {
     border-radius: 50%;
     border: 4px solid var(--accent-color);
     box-shadow: 0 0 15px rgba(255, 157, 92, 0.5);
+    max-width: 100%;
+    height: auto;
 }
 
 .about-text {
@@ -406,6 +414,32 @@ footer {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+
+.typing {
+  font-size: 2em;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  width: 0;
+  animation: typing 8s steps(30, end) 2s infinite alternate,
+             blink-caret 0.75s step-end infinite;
+  animation-delay: 1s;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  20% { width: 100%; }
+  80% { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
